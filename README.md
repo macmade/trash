@@ -27,6 +27,12 @@ Installation
 
     brew install --HEAD macmade/tap/trash
 
+### Shell alias
+
+You can alias the default `rm` command to `trash`, using the following line into your shell profile file:
+
+    if [ -f /usr/local/bin/trash ]; then alias rm="/usr/local/bin/trash"; fi
+
 License
 -------
 
