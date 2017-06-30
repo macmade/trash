@@ -82,7 +82,7 @@ do
         
         if( isDir.boolValue )
         {
-            if( args.directories == false )
+            if( args.directories == false && args.recursive == false )
             {
                 print( "rm: \( file ): is a directory" )
                 exit( -1 )
