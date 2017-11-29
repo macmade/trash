@@ -54,7 +54,7 @@ class Arguments
             else if( arg.hasPrefix( "-" ) )
             {
                 let index = arg.index( arg.startIndex, offsetBy: 1 )
-                let args  = arg.substring( from: index ).characters
+                let args  = arg.substring( from: index )
                 
                 for c in args
                 {
