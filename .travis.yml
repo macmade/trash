@@ -4,11 +4,10 @@ cache:
     directories:
     - $HOME/.ccache
 install:
-- gem install xcpretty
 - brew install ccache
 - PATH=$PATH:/usr/local/opt/ccache/libexec
 script:
-- set -o pipefail && xcodebuild -project "trash.xcodeproj" -scheme "trash" build analyze | xcpretty
+- set -o pipefail && xcodebuild -project "trash.xcodeproj" -scheme "trash" build analyze
 before_script:
 - ccache -s
 - ccache -z
