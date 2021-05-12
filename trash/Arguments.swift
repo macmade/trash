@@ -47,36 +47,40 @@ class Arguments
         
         for arg in arguments.dropFirst()
         {
-            if( arg.hasPrefix( "-" ) && self.files.count > 0 )
+            if arg.hasPrefix( "-" ) && FileManager.default.fileExists( atPath: arg )
+            {
+                self.files.append( arg )
+            }
+            else if arg.hasPrefix( "-" ) && self.files.count > 0
             {
                 throw Error.RuntimeError( self.usage() ?? "Invalid arguments" )
             }
-            else if( arg.hasPrefix( "-" ) )
+            else if arg.hasPrefix( "-" )
             {
                 let index = arg.index( arg.startIndex, offsetBy: 1 )
                 let args  = arg[ index... ]
                 
                 for c in args
                 {
-                    if( c == "d" )
+                    if c == "d"
                     {
                         self.directories = true
                     }
-                    else if( c == "f" )
+                    else if c == "f"
                     {
                         self.interactive = false
                         self.force       = true
                     }
-                    else if( c == "i" )
+                    else if c == "i"
                     {
                         self.interactive = true
                         self.force       = false
                     }
-                    else if( c == "R" || c == "r" )
+                    else if c == "R" || c == "r"
                     {
                         self.recursive = true
                     }
-                    else if( c == "v" )
+                    else if c == "v"
                     {
                         self.verbose = true
                     }
