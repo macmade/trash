@@ -40,7 +40,7 @@ class Arguments
     
     public init( _ arguments: [ String ] ) throws
     {
-        if( arguments.count < 2 )
+        if arguments.count < 2
         {
             throw Error.RuntimeError( self.usage() ?? "Unknown error" )
         }
